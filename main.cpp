@@ -7,6 +7,10 @@ using namespace std;
 int x=1,y=1,n=0;
 int map[50][50];//Use 50X50 to save memory
 int mine_map[50][50];
+int map1[30][30] = {0};
+int map2[16][16] = {0};
+int map3[10][10] = {0};
+
 short int inputCheck=0;//Use short int to save memory
 
 //void creatMap(int x_axis,int y_axis) BY MinOS
@@ -25,9 +29,11 @@ void printMap(int x_axis,int y_axis){
         printf("%3d",i);
     }
     printf("\n");
-    for (int i = 1; i <= y_axis; ++i) {
+    for (int i = 1; i <= y_axis; ++i)
+        {
         printf("%3d",i);
-        for (int j = 1; j <= x_axis ; ++j) {
+        for (int j = 1; j <= x_axis ; ++j) 
+        {
             char outChar;
             if(map[i][j]==-1){//Unknown
                 outChar='?';
@@ -93,19 +99,52 @@ void putMine(){
 
 
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    //inputCheck BY MinOS
-    while(inputCheck==0){
-        cin >> x >> y >> n ;//Accept Suggestion
-        if(x>25||y>25||n>x*y*0.25){
-            printf("over!\n");
-            inputCheck = 0;
-        }
-        else{
-            inputCheck = 1;
-        }
+int main() 
+{
+    srand (time(NULL));//要到哪里用
+    int i = (rand() % 10) + 1;
+    int j = (rand() % 10) + 1;
+    int MineNum = 0;
+
+    int choose = 0;//选择难度1，2，3
+    cout << "请从1,2,3三个难度中选择一个适配的难度:" <<endl;
+    cin >> choose ;
+
+    int kick = 0;//点击数
+
+
+
+
+    int (*p_one)[10] = map3;
+    int (*p_two)[16] = map2;
+    int (*p_three)[30]= map1;
+    if (choose == 1)
+    {
+        MineNum = 10;
+    }else if(choose == 2) 
+    {
+        MineNum = 40;
+    }else
+    {
+        MineNum = 159;
     }
+    for (int i = 1;i <= 10 ;i++)
+    {
+        for (int j = 1;j <=10 ;j++)
+        {
+            if (p_one[i][j] = 1)
+            {
+                cout //待定
+            }
+        }
+
+
+    }
+
+
+    std::cout << "Hello, World!" << std::endl;
+
+    scanf("%d %d",&x,&y);//为什么不用宏函数
 
     creatMap(x,y);
     printMap(x,y);
