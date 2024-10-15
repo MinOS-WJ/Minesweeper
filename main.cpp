@@ -5,7 +5,9 @@ using namespace std;
 
 
 int x=1,y=1;
-int map[1000][1000];
+int map1[1000][1000] = {0};
+int map2[100][100] = {0};
+int map3[10][10] = {0};
 
 //void creatMap(int x_axis,int y_axis) BY MinOS
 void creatMap(int x_axis,int y_axis)
@@ -15,7 +17,7 @@ void creatMap(int x_axis,int y_axis)
     {
         for (int j = 0; j <x_axis; ++j) 
         {
-            map[i][j]=1;
+            map3[i][j]=1;
         }
     }
 }
@@ -35,7 +37,7 @@ void printMap(int x_axis,int y_axis)
         for (int j = 0; j <x_axis ; ++j) 
         {
             char outChar;
-            if(map[i][j]==1)
+            if(map3[i][j]==1)
             {
                 outChar='*';
             }
@@ -46,7 +48,7 @@ void printMap(int x_axis,int y_axis)
             printf("  %c",outChar);
         }
         printf("\n");
-    }
+    }//这个函数什么意思
 }
 void MineApper(int kick)//by lawliet
 {
@@ -66,9 +68,11 @@ void MineApper(int kick)//by lawliet
 
 int main() 
 {
-    srand (time(NULL));
+    srand (time(NULL));//要到哪里用
     int kick = 0;//点击数
-
+    int *p_one = map1[10];
+    int *p_two = map2[100];
+    int *p_three = map3[1000];
     std::cout << "Hello, World!" << std::endl;
 
     scanf("%d %d",&x,&y);//为什么不用宏函数
